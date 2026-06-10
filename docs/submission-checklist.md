@@ -79,10 +79,9 @@ Install command: npm install
 4. AI 一开始给出的 Vite 7 / 较新 jsdom 组合与本地 Node 20.14.0 不完全匹配，构建时出现 engine warning，后来改为 Vite 6、Vitest 3、jsdom 26 等兼容版本。
 5. Vitest 默认 worker 在当前环境里出现内存不稳定，最后通过 `vite.config.ts` 的 `singleThread: true` 固定单线程测试。
 6. 有一个 UI 测试最初写了过于精确的文本匹配，React 渲染拆分文本后断言失败，后来改成更贴近用户可见结果的断言。
-7. GitHub HTTPS push 曾遇到连接重置，最终用 `git -c http.version=HTTP/1.1 push origin main` 稳定推送。
-8. 公网部署阶段先做 Vercel 方案和风险清单，再将生产 URL 写入 README 与提交清单，并用 HTTP 200 验证匿名可访问。
-9. 后续用 AI 辅助补了中英文切换、`Vs cheapest` 差价列、桌面表格列宽优化和手机横屏断点修复。
-10. 仍不完全确定的是：价格页未来变化、供应商非标准计费分支、以及最终提交前最好再做一次真实手机和匿名浏览器复验。
+7. 使用 Claude Code 接入的 DeepSeek v4 模型审查代码，重点检查性能、代码质量、可访问性、测试边界和开发体验。
+8. 根据 DeepSeek v4 审查结果完成本轮修复：缓存 USD formatter、静态化价格来源、提取差价格式化 helper、补差价单测、清理验证错误和启用更严格索引检查。
+9. 公网部署阶段先做 Vercel 方案和风险清单，后续用 AI 辅助补了中英文切换、`Vs cheapest` 差价列、桌面表格列宽优化和手机横屏断点修复。
 
 ## 6. 遇到的问题和处理
 
