@@ -6,5 +6,5 @@
 4. AI suggested tooling that did not fit local Node 20.14.0; build warnings led to pinning Vite 6, Vitest 3, and jsdom 26.
 5. A brittle UI text assertion failed because React split text nodes; it was replaced with user-visible behavior assertions.
 6. GitHub/Vercel checks hit network instability; HTTP/1.1 push and HTTP 200 verification confirmed the public result.
-7. Later AI-assisted refinements added bilingual UI, cheapest-difference column, desktop table fit, and mobile landscape fixes.
+7. Later AI-assisted refinements added bilingual UI, cheapest-difference column, responsive fixes, and selected optimization-review items.
 8. Remaining uncertainty: provider prices may change, and final submission should still get one real-phone and incognito check.
