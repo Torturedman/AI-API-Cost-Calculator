@@ -10,9 +10,7 @@ expensive.
 
 ## Live Demo
 
-The production build is ready for deployment to Vercel, Cloudflare Pages, or
-Netlify. After deployment, use the generated platform URL as the public demo
-link.
+Public demo: https://ai-api-cost-calculator-rouge.vercel.app/
 
 ## Data Sources
 
