@@ -82,6 +82,7 @@ Install command: npm install
 7. 使用 Claude Code 接入的 DeepSeek v4 模型审查代码，重点检查性能、代码质量、可访问性、测试边界和开发体验。
 8. 根据 DeepSeek v4 审查结果完成本轮修复：缓存 USD formatter、静态化价格来源、提取差价格式化 helper、补差价单测、清理验证错误和启用更严格索引检查。
 9. 公网部署阶段先做 Vercel 方案和风险清单，后续用 AI 辅助补了中英文切换、`Vs cheapest` 差价列、桌面表格列宽优化和手机横屏断点修复。
+10. 使用到的常用 AI 协作能力包括 Superpowers、gstack 和 UI/UX 相关能力：Superpowers 辅助拆计划、TDD 和提交前验证，gstack 辅助工程审查、部署规划和文档同步，UI/UX 能力辅助界面可用性、响应式和移动端优化取舍。
 
 ## 6. 遇到的问题和处理
 
