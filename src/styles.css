@@ -483,20 +483,7 @@ tbody tr:first-child td:last-child {
   outline-offset: 2px;
 }
 
-@media (max-width: 760px) {
-  .app-shell {
-    width: min(100% - 20px, 680px);
-    padding-top: 22px;
-  }
-
-  .intro-panel {
-    padding-top: 16px;
-  }
-
-  h1 {
-    font-size: 2.45rem;
-  }
-
+@media (max-width: 960px) {
   .calculator-grid {
     grid-template-columns: 1fr;
   }
@@ -537,6 +524,26 @@ tbody tr:first-child td:last-child {
   th:nth-child(n + 3),
   td:nth-child(n + 3) {
     width: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 20px, 680px);
+    padding-top: 22px;
+  }
+
+  .intro-panel {
+    padding-top: 16px;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  .results-panel,
+  .control-panel {
+    padding: 14px;
   }
 }
 
