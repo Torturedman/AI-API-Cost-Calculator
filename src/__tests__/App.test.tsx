@@ -34,6 +34,24 @@ describe("App", () => {
     expect(screen.getByText(/200 requests\/day/)).toBeInTheDocument();
   });
 
+  it("switches visible copy to Chinese without resetting estimates", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const requestsInput = screen.getByLabelText("Requests per day");
+    await user.clear(requestsInput);
+    await user.type(requestsInput, "200");
+    await user.click(screen.getByRole("button", { name: "中文" }));
+
+    expect(
+      screen.getByRole("heading", { name: "AI API 成本计算器" })
+    ).toBeInTheDocument();
+    expect(screen.getByText("最便宜估算")).toBeInTheDocument();
+    expect(screen.getByLabelText("每日请求量")).toHaveValue("200");
+    expect(screen.getAllByText("$1.80").length).toBeGreaterThan(0);
+    expect(screen.getByText(/每天 200 次请求/)).toBeInTheDocument();
+  });
+
   it("shows inline validation errors for invalid input", async () => {
     const user = userEvent.setup();
     render(<App />);

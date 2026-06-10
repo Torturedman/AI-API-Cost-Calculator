@@ -3,22 +3,32 @@ import { formatUsd } from "../lib/format";
 
 interface ModelTableProps {
   results: ModelCostEstimate[];
+  copy: {
+    caption: string;
+    provider: string;
+    model: string;
+    inputPrice: string;
+    outputPrice: string;
+    perRequest: string;
+    daily: string;
+    monthly: string;
+  };
 }
 
-export function ModelTable({ results }: ModelTableProps) {
+export function ModelTable({ results, copy }: ModelTableProps) {
   return (
     <div className="table-wrap">
       <table>
-        <caption>Model cost comparison</caption>
+        <caption>{copy.caption}</caption>
         <thead>
           <tr>
-            <th scope="col">Provider</th>
-            <th scope="col">Model</th>
-            <th scope="col">Input / 1M</th>
-            <th scope="col">Output / 1M</th>
-            <th scope="col">Per request</th>
-            <th scope="col">Daily</th>
-            <th scope="col">Monthly</th>
+            <th scope="col">{copy.provider}</th>
+            <th scope="col">{copy.model}</th>
+            <th scope="col">{copy.inputPrice}</th>
+            <th scope="col">{copy.outputPrice}</th>
+            <th scope="col">{copy.perRequest}</th>
+            <th scope="col">{copy.daily}</th>
+            <th scope="col">{copy.monthly}</th>
           </tr>
         </thead>
         <tbody>

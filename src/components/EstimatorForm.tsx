@@ -4,63 +4,60 @@ interface EstimatorFormProps {
   values: UsageInputValues;
   errors: UsageErrors;
   onChange: (field: UsageField, value: string) => void;
+  copy: {
+    ariaLabel: string;
+    fields: Record<
+      UsageField,
+      {
+        label: string;
+        helper: string;
+        error: string;
+      }
+    >;
+  };
 }
 
-const fields: Array<{
-  name: UsageField;
-  label: string;
-  helper: string;
-}> = [
-  {
-    name: "inputTokens",
-    label: "Average input tokens",
-    helper: "Prompt tokens per request"
-  },
-  {
-    name: "outputTokens",
-    label: "Average output tokens",
-    helper: "Completion tokens per request"
-  },
-  {
-    name: "requestsPerDay",
-    label: "Requests per day",
-    helper: "Expected daily volume"
-  },
-  {
-    name: "daysPerMonth",
-    label: "Usage days per month",
-    helper: "1 to 31 days"
-  }
+const fields: UsageField[] = [
+  "inputTokens",
+  "outputTokens",
+  "requestsPerDay",
+  "daysPerMonth"
 ];
 
-export function EstimatorForm({ values, errors, onChange }: EstimatorFormProps) {
+export function EstimatorForm({
+  values,
+  errors,
+  onChange,
+  copy
+}: EstimatorFormProps) {
   return (
-    <form className="estimator-form" aria-label="Usage inputs">
+    <form className="estimator-form" aria-label={copy.ariaLabel}>
       {fields.map((field) => {
-        const error = errors[field.name];
-        const errorId = `${field.name}-error`;
-        const helperId = `${field.name}-helper`;
+        const fieldCopy = copy.fields[field];
+        const error = errors[field];
+        const errorId = `${field}-error`;
+        const helperId = `${field}-helper`;
 
         return (
-          <label className="input-field" key={field.name}>
-            <span>{field.label}</span>
+          <label className="input-field" key={field}>
+            <span>{fieldCopy.label}</span>
             <input
-              aria-label={field.label}
+              aria-label={fieldCopy.label}
               aria-describedby={error ? errorId : helperId}
               aria-invalid={error ? "true" : "false"}
               inputMode="numeric"
-              min={field.name === "daysPerMonth" ? 1 : 0}
-              onChange={(event) => onChange(field.name, event.target.value)}
+              min={field === "daysPerMonth" ? 1 : 0}
+              onChange={(event) => onChange(field, event.target.value)}
               type="text"
-              value={values[field.name]}
+              value={values[field]}
             />
             {error ? (
               <span className="field-error" id={errorId}>
-                {error}
+                {fieldCopy.error}
               </span>
             ) : (
               <span className="field-helper" id={helperId}>
-                {field.helper}
+                {fieldCopy.helper}
               </span>
             )}
           </label>
