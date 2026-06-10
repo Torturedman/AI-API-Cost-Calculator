@@ -9,7 +9,7 @@ export interface UsageInputValues {
 
 export type UsageField = keyof UsageInputValues;
 
-export type UsageErrors = Partial<Record<UsageField, string>>;
+export type UsageErrors = Partial<Record<UsageField, true>>;
 
 export type UsageParseResult =
   | {
@@ -28,28 +28,23 @@ const fieldRules: Record<
   {
     min: number;
     max: number;
-    message: string;
   }
 > = {
   inputTokens: {
     min: 0,
-    max: 10_000_000,
-    message: "Enter an integer from 0 to 10,000,000."
+    max: 10_000_000
   },
   outputTokens: {
     min: 0,
-    max: 10_000_000,
-    message: "Enter an integer from 0 to 10,000,000."
+    max: 10_000_000
   },
   requestsPerDay: {
     min: 0,
-    max: 1_000_000,
-    message: "Enter an integer from 0 to 1,000,000."
+    max: 1_000_000
   },
   daysPerMonth: {
     min: 1,
-    max: 31,
-    message: "Enter an integer from 1 to 31."
+    max: 31
   }
 };
 
@@ -77,7 +72,7 @@ export function parseUsageInput(values: UsageInputValues): UsageParseResult {
     const parsed = parseIntegerField(values[field], field);
 
     if (parsed === null) {
-      errors[field] = fieldRules[field].message;
+      errors[field] = true;
     } else {
       parsedValues[field] = parsed;
     }

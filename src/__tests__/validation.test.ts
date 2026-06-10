@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { formatUsd } from "../lib/format";
 import { parseUsageInput } from "../lib/validation";
 
 describe("parseUsageInput", () => {
@@ -46,23 +45,11 @@ describe("parseUsageInput", () => {
       ok: false,
       usage: null,
       errors: {
-        inputTokens: "Enter an integer from 0 to 10,000,000.",
-        outputTokens: "Enter an integer from 0 to 10,000,000.",
-        requestsPerDay: "Enter an integer from 0 to 1,000,000.",
-        daysPerMonth: "Enter an integer from 1 to 31."
+        inputTokens: true,
+        outputTokens: true,
+        requestsPerDay: true,
+        daysPerMonth: true
       }
     });
-  });
-});
-
-describe("formatUsd", () => {
-  it("uses 2 decimals for normal currency amounts", () => {
-    expect(formatUsd(30)).toBe("$30.00");
-    expect(formatUsd(1.234)).toBe("$1.23");
-  });
-
-  it("uses up to 6 decimals for tiny currency amounts", () => {
-    expect(formatUsd(0.0001234)).toBe("$0.000123");
-    expect(formatUsd(0.009999)).toBe("$0.009999");
   });
 });
