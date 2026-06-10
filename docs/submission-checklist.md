@@ -133,6 +133,6 @@ npm run build
 
 验证结果：
 
-- `npm run test -- --run` 通过：4 个测试文件、17 个测试全部通过。
+- `npm run test -- --run` 通过：4 个测试文件、18 个测试全部通过。
 - `npm run build` 通过：TypeScript 编译和 Vite production build 均成功。
 - `plan.md` 保持未跟踪状态，除非明确需要提交原始题目文档。

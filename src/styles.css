@@ -379,17 +379,17 @@ td:nth-child(2) {
 
 th:first-child,
 td:first-child {
-  width: 14%;
+  width: 12%;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-  width: 21%;
+  width: 20%;
 }
 
 th:nth-child(n + 3),
 td:nth-child(n + 3) {
-  width: 13%;
+  width: 11.33%;
   white-space: nowrap;
 }
 
@@ -415,9 +415,18 @@ td[data-testid="model-name"] {
   font-weight: 780;
 }
 
-td:last-child {
+td:nth-child(7) {
   color: var(--teal-dark);
   font-weight: 850;
+}
+
+td:last-child {
+  color: #8f421f;
+  font-weight: 850;
+}
+
+tbody tr:first-child td:last-child {
+  color: var(--teal-dark);
 }
 
 .source-note {

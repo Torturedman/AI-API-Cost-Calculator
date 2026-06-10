@@ -17,6 +17,7 @@ interface TableCopy {
   perRequest: string;
   daily: string;
   monthly: string;
+  difference: string;
 }
 
 export interface AppCopy {
@@ -92,7 +93,8 @@ export const appCopy: Record<Language, AppCopy> = {
       outputPrice: "Output / 1M",
       perRequest: "Per request",
       daily: "Daily",
-      monthly: "Monthly"
+      monthly: "Monthly",
+      difference: "Vs cheapest"
     },
     sourcesAriaLabel: "Pricing sources",
     sourcesTitle: "Sources",
@@ -150,7 +152,8 @@ export const appCopy: Record<Language, AppCopy> = {
       outputPrice: "输出 / 1M",
       perRequest: "单次请求",
       daily: "每日",
-      monthly: "每月"
+      monthly: "每月",
+      difference: "与最低价差"
     },
     sourcesAriaLabel: "价格来源",
     sourcesTitle: "来源",

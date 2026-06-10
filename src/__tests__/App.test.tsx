@@ -84,6 +84,22 @@ describe("App", () => {
     ]);
   });
 
+  it("renders monthly difference from the cheapest model", () => {
+    render(<App />);
+
+    const rows = modelRows();
+
+    expect(
+      screen.getByRole("columnheader", { name: "Vs cheapest" })
+    ).toBeInTheDocument();
+    expect(within(rows[0]).getByTestId("monthly-difference")).toHaveTextContent(
+      "$0.00"
+    );
+    expect(within(rows[1]).getByTestId("monthly-difference")).toHaveTextContent(
+      "+$1.58"
+    );
+  });
+
   it("renders official pricing source links", () => {
     render(<App />);
 
