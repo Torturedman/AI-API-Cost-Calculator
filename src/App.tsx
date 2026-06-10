@@ -18,20 +18,18 @@ const defaultInputValues: UsageInputValues = {
   daysPerMonth: "30"
 };
 
-function uniqueSources() {
-  return Array.from(
-    new Map(
-      MODEL_PRICES.map((model) => [
-        model.sourceUrl,
-        {
-          label: model.sourceLabel,
-          url: model.sourceUrl,
-          checkedAt: model.checkedAt
-        }
-      ])
-    ).values()
-  );
-}
+const pricingSources = Array.from(
+  new Map(
+    MODEL_PRICES.map((model) => [
+      model.sourceUrl,
+      {
+        label: model.sourceLabel,
+        url: model.sourceUrl,
+        checkedAt: model.checkedAt
+      }
+    ])
+  ).values()
+);
 
 export function App() {
   const [language, setLanguage] = useState<Language>("en");
@@ -49,7 +47,6 @@ export function App() {
     );
   }, [parsedUsage]);
   const cheapest = results[0] ?? null;
-  const sources = uniqueSources();
 
   function handleInputChange(field: UsageField, value: string) {
     setInputValues((current) => ({
@@ -120,9 +117,9 @@ export function App() {
 
           <section className="source-note" aria-label={copy.sourcesAriaLabel}>
             <h2>{copy.sourcesTitle}</h2>
-            <p>{copy.sourcesNote(sources[0]?.checkedAt)}</p>
+            <p>{copy.sourcesNote(pricingSources[0]?.checkedAt)}</p>
             <ul>
-              {sources.map((source) => (
+              {pricingSources.map((source) => (
                 <li key={source.url}>
                   <a href={source.url} rel="noreferrer" target="_blank">
                     {source.label}

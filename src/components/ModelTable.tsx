@@ -1,5 +1,5 @@
 import type { ModelCostEstimate } from "../lib/cost";
-import { formatUsd } from "../lib/format";
+import { formatMonthlyDifference, formatUsd } from "../lib/format";
 
 interface ModelTableProps {
   results: ModelCostEstimate[];
@@ -17,14 +17,13 @@ interface ModelTableProps {
 }
 
 export function ModelTable({ results, copy }: ModelTableProps) {
-  const cheapestMonthlyUsd = results[0]?.monthlyUsd ?? 0;
+  const cheapest = results[0];
 
-  function formatMonthlyDifference(monthlyUsd: number) {
-    const difference = Math.max(0, monthlyUsd - cheapestMonthlyUsd);
-    const formatted = formatUsd(difference);
-
-    return difference === 0 ? formatted : `+${formatted}`;
+  if (!cheapest) {
+    return null;
   }
+
+  const cheapestMonthlyUsd = cheapest.monthlyUsd;
 
   return (
     <div className="table-wrap">
@@ -53,7 +52,7 @@ export function ModelTable({ results, copy }: ModelTableProps) {
               <td>{formatUsd(result.dailyUsd)}</td>
               <td>{formatUsd(result.monthlyUsd)}</td>
               <td data-testid="monthly-difference">
-                {formatMonthlyDifference(result.monthlyUsd)}
+                {formatMonthlyDifference(result.monthlyUsd, cheapestMonthlyUsd)}
               </td>
             </tr>
           ))}

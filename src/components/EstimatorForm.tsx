@@ -37,14 +37,16 @@ export function EstimatorForm({
         const error = errors[field];
         const errorId = `${field}-error`;
         const helperId = `${field}-helper`;
+        const inputId = `${field}-input`;
 
         return (
-          <label className="input-field" key={field}>
+          <label className="input-field" htmlFor={inputId} key={field}>
             <span>{fieldCopy.label}</span>
             <input
               aria-label={fieldCopy.label}
               aria-describedby={error ? errorId : helperId}
               aria-invalid={error ? "true" : "false"}
+              id={inputId}
               inputMode="numeric"
               min={field === "daysPerMonth" ? 1 : 0}
               onChange={(event) => onChange(field, event.target.value)}
