@@ -25,6 +25,11 @@ Pricing data was manually checked on 2026-06-10 from official pages:
 See [`docs/pricing-sources.md`](docs/pricing-sources.md) for the source audit
 trail and pricing scope.
 
+## Submission Materials
+
+The Chinese submission summary and remaining checklist are tracked in
+[`docs/submission-checklist.md`](docs/submission-checklist.md).
+
 ## Tech Stack
 
 - Vite
@@ -88,4 +93,3 @@ Output directory: dist
   the numbers for financial planning.
 - The app does not call provider APIs, so it cannot validate usage against a
   real billing account.
-
