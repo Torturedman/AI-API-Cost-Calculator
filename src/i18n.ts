@@ -59,12 +59,12 @@ export const appCopy: Record<Language, AppCopy> = {
       inputTokens: {
         label: "Average input tokens",
         helper: "Prompt tokens per request",
-        error: "Enter an integer from 0 to 10,000,000."
+        error: "Enter an integer from 0 to 1,000,000,000."
       },
       outputTokens: {
         label: "Average output tokens",
         helper: "Completion tokens per request",
-        error: "Enter an integer from 0 to 10,000,000."
+        error: "Enter an integer from 0 to 1,000,000,000."
       },
       requestsPerDay: {
         label: "Requests per day",
@@ -118,12 +118,12 @@ export const appCopy: Record<Language, AppCopy> = {
       inputTokens: {
         label: "平均输入 tokens",
         helper: "每次请求的 prompt tokens",
-        error: "请输入 0 到 10,000,000 之间的整数。"
+        error: "请输入 0 到 1,000,000,000 之间的整数。"
       },
       outputTokens: {
         label: "平均输出 tokens",
         helper: "每次请求的 completion tokens",
-        error: "请输入 0 到 10,000,000 之间的整数。"
+        error: "请输入 0 到 1,000,000,000 之间的整数。"
       },
       requestsPerDay: {
         label: "每日请求量",

@@ -32,11 +32,11 @@ const fieldRules: Record<
 > = {
   inputTokens: {
     min: 0,
-    max: 10_000_000
+    max: 1_000_000_000
   },
   outputTokens: {
     min: 0,
-    max: 10_000_000
+    max: 1_000_000_000
   },
   requestsPerDay: {
     min: 0,
