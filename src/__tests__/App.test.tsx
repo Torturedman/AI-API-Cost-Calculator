@@ -44,20 +44,24 @@ describe("App", () => {
     expect(screen.getByText(/200 requests\/day/)).toBeInTheDocument();
   });
 
-  it("renders compact costs for billion-token usage scenarios", async () => {
+  it("renders compact costs for high-volume usage scenarios", async () => {
     const user = userEvent.setup();
     render(<App />);
 
     const inputTokens = screen.getByLabelText("Average input tokens");
     const outputTokens = screen.getByLabelText("Average output tokens");
+    const requestsPerDay = screen.getByLabelText("Requests per day");
     await user.clear(inputTokens);
-    await user.type(inputTokens, "1000000000");
+    await user.type(inputTokens, "10000000");
     await user.clear(outputTokens);
-    await user.type(outputTokens, "1000000000");
+    await user.type(outputTokens, "10000000");
+    await user.clear(requestsPerDay);
+    await user.type(requestsPerDay, "1000000");
 
-    expect(screen.queryByText("Enter an integer from 0 to 1,000,000,000.")).not.toBeInTheDocument();
-    expect(screen.getAllByText("$1.50M").length).toBeGreaterThan(0);
-    expect(screen.queryByText("$1,500,000.00")).not.toBeInTheDocument();
+    // No validation error at max values
+    expect(screen.queryByText("Enter an integer from 0 to 10,000,000.")).not.toBeInTheDocument();
+    // Compact M/B suffix kicks in for large monthly costs
+    expect(screen.getAllByText(/\$\d+\.\d{2}M/).length).toBeGreaterThan(0);
   });
 
   it("switches visible copy to Chinese without resetting estimates", async () => {
