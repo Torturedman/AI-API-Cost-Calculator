@@ -420,6 +420,11 @@ td:nth-child(7) {
   font-weight: 850;
 }
 
+th:last-child,
+td:last-child {
+  white-space: normal;
+}
+
 td:last-child {
   color: #8f421f;
   font-weight: 850;
