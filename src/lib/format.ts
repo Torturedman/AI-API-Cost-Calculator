@@ -12,8 +12,23 @@ const subCentUsdFormatter = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 6
 });
 
+const compactUsdUnits = [
+  { threshold: 1_000_000_000_000, suffix: "T" },
+  { threshold: 1_000_000_000, suffix: "B" },
+  { threshold: 1_000_000, suffix: "M" }
+];
+
 export function formatUsd(value: number): string {
   const abs = Math.abs(value);
+  const compactUnit = compactUsdUnits.find(
+    (unit) => abs >= unit.threshold
+  );
+
+  if (compactUnit) {
+    const sign = value < 0 ? "-" : "";
+    return `${sign}${normalUsdFormatter.format(abs / compactUnit.threshold)}${compactUnit.suffix}`;
+  }
+
   const formatter =
     abs > 0 && abs < 0.01 ? subCentUsdFormatter : normalUsdFormatter;
 

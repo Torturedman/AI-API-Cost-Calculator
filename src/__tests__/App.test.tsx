@@ -44,6 +44,22 @@ describe("App", () => {
     expect(screen.getByText(/200 requests\/day/)).toBeInTheDocument();
   });
 
+  it("renders compact costs for billion-token usage scenarios", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const inputTokens = screen.getByLabelText("Average input tokens");
+    const outputTokens = screen.getByLabelText("Average output tokens");
+    await user.clear(inputTokens);
+    await user.type(inputTokens, "1000000000");
+    await user.clear(outputTokens);
+    await user.type(outputTokens, "1000000000");
+
+    expect(screen.queryByText("Enter an integer from 0 to 1,000,000,000.")).not.toBeInTheDocument();
+    expect(screen.getAllByText("$1.50M").length).toBeGreaterThan(0);
+    expect(screen.queryByText("$1,500,000.00")).not.toBeInTheDocument();
+  });
+
   it("switches visible copy to Chinese without resetting estimates", async () => {
     const user = userEvent.setup();
     render(<App />);
