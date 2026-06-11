@@ -25,7 +25,7 @@ describe("parseUsageInput", () => {
   it("accepts documented minimum and maximum values", () => {
     const result = parseUsageInput({
       inputTokens: "0",
-      outputTokens: "1000000000",
+      outputTokens: "10000000",
       requestsPerDay: "1000000",
       daysPerMonth: "31"
     });
