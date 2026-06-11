@@ -1,6 +1,6 @@
 :root {
   color: #18211f;
-  background: #edf2f4;
+  background: #f4eadb;
   font-family:
     "Aptos",
     "Segoe UI",
@@ -13,19 +13,19 @@
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   --ink: #18211f;
-  --muted: #66746e;
-  --line: #d6dfdc;
-  --line-strong: #b9c8c3;
-  --page: #edf2f4;
+  --muted: #746757;
+  --line: #e2d2bd;
+  --line-strong: #cdb89d;
+  --page: #f4eadb;
   --surface: #ffffff;
-  --surface-soft: #f7faf8;
-  --surface-warm: #fbf6ec;
+  --surface-soft: #fff8ef;
+  --surface-warm: #fff2dc;
   --teal: #0f766e;
   --teal-dark: #0a504b;
-  --teal-soft: #dff4ee;
+  --teal-soft: #f6dfbe;
   --accent: #bf5b2c;
   --danger: #b42318;
-  --shadow: 0 24px 70px rgba(25, 38, 35, 0.11);
+  --shadow: 0 24px 70px rgba(76, 50, 26, 0.13);
 }
 
 * {
@@ -37,12 +37,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0 28%, transparent 28%),
-    linear-gradient(180deg, #edf2f4 0%, #f8faf9 48%, #f5efe4 100%),
+    linear-gradient(135deg, rgba(191, 91, 44, 0.14) 0 28%, transparent 28%),
+    linear-gradient(180deg, #f4eadb 0%, #fffaf2 48%, #f1dcc0 100%),
     repeating-linear-gradient(
       90deg,
-      rgba(24, 33, 31, 0.045) 0,
-      rgba(24, 33, 31, 0.045) 1px,
+      rgba(82, 55, 28, 0.045) 0,
+      rgba(82, 55, 28, 0.045) 1px,
       transparent 1px,
       transparent 96px
     );
@@ -79,7 +79,7 @@ input {
 .eyebrow {
   min-width: 0;
   margin: 0;
-  color: var(--teal-dark);
+  color: #8f421f;
   font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0;
@@ -194,7 +194,7 @@ h2 {
   width: calc(100% + 36px);
   height: 5px;
   margin: -18px -18px 16px;
-  background: linear-gradient(90deg, var(--teal), var(--accent));
+  background: linear-gradient(90deg, var(--accent), var(--teal));
   content: "";
 }
 
@@ -272,11 +272,11 @@ h2 {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 5px 20px;
   margin-bottom: 16px;
-  border-color: rgba(15, 118, 110, 0.22);
+  border-color: rgba(191, 91, 44, 0.24);
   background:
-    linear-gradient(135deg, var(--teal-soft), #f9fffc 66%),
+    linear-gradient(135deg, var(--teal-soft), #fffaf2 66%),
     var(--surface);
-  box-shadow: 0 14px 35px rgba(15, 80, 75, 0.09);
+  box-shadow: 0 14px 35px rgba(143, 66, 31, 0.1);
   padding: 17px;
 }
 
@@ -403,11 +403,11 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:first-child td {
-  background: #eef8f3;
+  background: #fff1dc;
 }
 
 tbody tr:hover td {
-  background: #e8f2ef;
+  background: #f8ead8;
 }
 
 td[data-testid="model-name"] {
@@ -458,10 +458,10 @@ tbody tr:first-child td:last-child {
   display: inline-flex;
   min-height: 34px;
   align-items: center;
-  border: 1px solid rgba(15, 118, 110, 0.26);
+  border: 1px solid rgba(191, 91, 44, 0.26);
   border-radius: 999px;
-  background: rgba(223, 244, 238, 0.46);
-  color: var(--teal-dark);
+  background: rgba(246, 223, 190, 0.5);
+  color: #8f421f;
   font-size: 0.84rem;
   font-weight: 780;
   padding: 6px 10px;
@@ -473,13 +473,13 @@ tbody tr:first-child td:last-child {
 }
 
 .source-note a:hover {
-  border-color: rgba(15, 118, 110, 0.48);
-  background: #d8efe8;
+  border-color: rgba(191, 91, 44, 0.48);
+  background: #f2d7b2;
   transform: translateY(-1px);
 }
 
 .source-note a:focus-visible {
-  outline: 3px solid rgba(15, 118, 110, 0.2);
+  outline: 3px solid rgba(191, 91, 44, 0.22);
   outline-offset: 2px;
 }
 
